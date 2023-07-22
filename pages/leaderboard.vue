@@ -1,18 +1,25 @@
 <template>
   <div id="screen">
-    <div>
-      <nuxt-link to="/jogo">
-        <div class="option"> Iniciar </div>
-      </nuxt-link>
-      <nuxt-link to="/Leaderboard">
-        <div class="option"> Leaderboard </div>
-      </nuxt-link>
-      <nuxt-link to="/sair">
-        <div class="option"> Sair </div>
-      </nuxt-link>
+    <h1> Leaderboard </h1>
+    <div v-for="game in Leaderboard" class="option">
+      {{ game.date }}&nbsp; - &nbsp; <span style="color: #11F228">  {{ game.score }} </span>
     </div>
   </div>
 </template>
+
+<script>
+
+import leaderboardJson from '../assets/LeaderboardMock.json'
+
+export default {
+  data () {
+    return {
+      Leaderboard: leaderboardJson
+    }
+  }
+}
+
+</script>
 
 <style scoped>
   #screen {
@@ -23,6 +30,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    color: white;
     background-color: #36bbf5;
   }
 
